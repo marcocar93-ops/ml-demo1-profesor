@@ -1,0 +1,3 @@
+modelo,n_clusters,silhouette,davies_bouldin,n_outliers
+K-Means,5,0.2924747941597334,1.2802839173995766,0
+DBSCAN,45,0.3286616218479694,0.9697290227439174,978
