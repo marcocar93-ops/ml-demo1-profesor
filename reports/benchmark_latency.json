@@ -1,6 +1,6 @@
 {
   "n_consultas": 100,
-  "kmeans_latencia_promedio_ms": 0.204846,
-  "dbscan_aproximado_latencia_promedio_ms": 0.507782,
+  "kmeans_latencia_promedio_ms": 0.49073999999999995,
+  "dbscan_aproximado_latencia_promedio_ms": 1.302551,
   "nota_dbscan": "Estimacion por vecino nucleo dentro de eps; DBSCAN de scikit-learn no implementa predict."
 }
