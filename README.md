@@ -23,3 +23,13 @@ Este proyecto implementa un pipeline completo de Machine Learning modular, repro
 python -m venv venv
 source venv/bin/activate  # En Windows: .\venv\Scripts\Activate
 pip install -r requirements.txt
+```
+
+## Ejecutar la app web
+
+```bash
+pip install -r requirements_app.txt
+streamlit run app.py
+```
+
+La app se abrirá en `http://localhost:8501`.

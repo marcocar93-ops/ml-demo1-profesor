@@ -1,0 +1,57 @@
+[
+  {
+    "model": "Random Forest",
+    "type": "Supervisado",
+    "accuracy": 0.9954545454545455,
+    "f1_score": 0.9954517027687759,
+    "latency_ms": 40.2979530103039,
+    "training_time_s": 0.36406549997627735,
+    "silhouette": null,
+    "latency_measurement": "predicción individual",
+    "model_path": "models/random_forest.joblib"
+  },
+  {
+    "model": "XGBoost",
+    "type": "Supervisado",
+    "accuracy": 0.9863636363636363,
+    "f1_score": 0.9862103514221616,
+    "latency_ms": 2.6379520003683865,
+    "training_time_s": 0.8210278000915423,
+    "silhouette": null,
+    "latency_measurement": "predicción individual",
+    "model_path": "models/xgboost.joblib"
+  },
+  {
+    "model": "SVM",
+    "type": "Supervisado",
+    "accuracy": 0.9840909090909091,
+    "f1_score": 0.9839948176977003,
+    "latency_ms": 0.9484900021925569,
+    "training_time_s": 0.03780070005450398,
+    "silhouette": null,
+    "latency_measurement": "predicción individual",
+    "model_path": "models/svm.joblib"
+  },
+  {
+    "model": "K-Means",
+    "type": "No supervisado",
+    "accuracy": null,
+    "f1_score": null,
+    "latency_ms": 0.7275229936931282,
+    "training_time_s": 0.1755117999855429,
+    "silhouette": 0.25298258156619713,
+    "latency_measurement": "predicción individual",
+    "model_path": "models/k_means.joblib"
+  },
+  {
+    "model": "DBSCAN",
+    "type": "No supervisado",
+    "accuracy": null,
+    "f1_score": null,
+    "latency_ms": null,
+    "training_time_s": 0.02642429992556572,
+    "silhouette": 0.36656309497719086,
+    "latency_measurement": "no aplica: DBSCAN no tiene predict",
+    "model_path": "models/dbscan.joblib"
+  }
+]

@@ -1,0 +1,6 @@
+modelo,tipo,latencia_promedio_ms,tiempo_entrenamiento_s
+Random Forest,Supervisado,40.2979530103039,0.36406549997627735
+XGBoost,Supervisado,2.6379520003683865,0.8210278000915423
+SVM,Supervisado,0.9484900021925569,0.03780070005450398
+K-Means,No supervisado,0.7275229936931282,0.1755117999855429
+DBSCAN,No supervisado,,0.02642429992556572
