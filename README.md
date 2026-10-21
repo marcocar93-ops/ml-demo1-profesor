@@ -33,3 +33,16 @@ streamlit run app.py
 ```
 
 La app se abrirá en `http://localhost:8501`.
+
+### Factibilidad económica
+
+En la pestaña **Factibilidad Económica** puedes asignar costos de falsos
+positivos y falsos negativos, consultar la matriz de confusión con umbral
+0.5 y comparar el costo total para umbrales de confianza de 0.1 a 0.9. La
+evaluación usa un conjunto de prueba estratificado (20 %, semilla 42).
+
+Como el modelo recomienda entre varios cultivos, las predicciones con
+confianza menor al umbral se registran como **Sin recomendación**. Una
+clasificación incorrecta aceptada cuenta como un falso positivo para el cultivo
+predicho y un falso negativo para el cultivo real; un rechazo cuenta como un
+falso negativo.

@@ -1,5 +1,5 @@
 {
-  "source_file": "crop.parquet",
+  "source_file": "data/raw/Crop_recommendation.csv",
   "row_count": 2200,
   "column_count": 8,
   "columns": [
