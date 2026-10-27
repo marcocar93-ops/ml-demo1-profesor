@@ -34,6 +34,12 @@ streamlit run app.py
 
 La app se abrirá en `http://localhost:8501`.
 
+La app utiliza el Random Forest multiclase y los artefactos de preprocesamiento
+guardados en `notebooks/models/`. Antes de abrirla, ejecuta la celda de
+entrenamiento de `notebooks/clase_6_integracion.ipynb`; esa celda guarda el
+modelo, el `RobustScaler` y el `LabelEncoder` juntos para evitar mezclar
+artefactos de entrenamientos distintos.
+
 ### Factibilidad económica
 
 En la pestaña **Factibilidad Económica** puedes asignar costos de falsos

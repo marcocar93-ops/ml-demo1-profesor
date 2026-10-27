@@ -10,9 +10,15 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
-import os
+from pathlib import Path
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
+
+ROOT_DIR = Path(__file__).resolve().parent
+MODEL_DIR = ROOT_DIR / "notebooks" / "models"
+FEATURE_COLUMNS = [
+    "N", "P", "K", "temperature", "humidity", "ph", "rainfall"
+]
 
 # ============================================================
 # CONFIGURACIÓN DE LA PÁGINA
@@ -29,9 +35,17 @@ st.set_page_config(
 @st.cache_resource
 def cargar_modelos():
     """Carga el modelo, scaler y label encoder desde disco."""
-    modelo = joblib.load('models/random_forest.pkl')
-    scaler = joblib.load('models/scaler.pkl')
-    le = joblib.load('models/label_encoder.pkl')
+    modelo = joblib.load(MODEL_DIR / "random_forest.joblib")
+    scaler = joblib.load(MODEL_DIR / "scaler.joblib")
+    le = joblib.load(MODEL_DIR / "label_encoder.joblib")
+
+    if list(modelo.feature_names_in_) != FEATURE_COLUMNS:
+        raise ValueError("Las features del modelo no coinciden con las esperadas por la app.")
+    if list(scaler.feature_names_in_) != FEATURE_COLUMNS:
+        raise ValueError("Las features del scaler no coinciden con las esperadas por la app.")
+    if not np.array_equal(modelo.classes_, np.arange(len(le.classes_))):
+        raise ValueError("Las clases del modelo no coinciden con el label encoder.")
+
     return modelo, scaler, le
 
 try:
@@ -46,24 +60,21 @@ except Exception as e:
 @st.cache_data
 def cargar_datos_evaluacion():
     """Carga las features y etiquetas usadas para evaluar el modelo."""
-    ruta_datos = "data/processed/crop.parquet"
-    if not os.path.isfile(ruta_datos):
+    ruta_datos = ROOT_DIR / "data" / "processed" / "crop.parquet"
+    if not ruta_datos.is_file():
         raise FileNotFoundError(
             f"No se encontró el dataset de evaluación: {ruta_datos}"
         )
 
     datos = pd.read_parquet(ruta_datos)
-    columnas_features = [
-        "N", "P", "K", "temperature", "humidity", "ph", "rainfall"
-    ]
-    columnas_faltantes = set(columnas_features + ["label"]) - set(datos.columns)
+    columnas_faltantes = set(FEATURE_COLUMNS + ["label"]) - set(datos.columns)
     if columnas_faltantes:
         raise ValueError(
             "Faltan columnas requeridas en el dataset: "
             + ", ".join(sorted(columnas_faltantes))
         )
 
-    return datos[columnas_features], datos["label"]
+    return datos[FEATURE_COLUMNS], datos["label"]
 
 
 def calcular_costos_multiclase(
