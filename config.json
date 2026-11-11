@@ -1,0 +1,27 @@
+{
+  "best_params": {
+    "n_estimators": 300,
+    "max_depth": null,
+    "min_samples_split": 7,
+    "class_weight": "balanced"
+  },
+  "threshold": 0.6,
+  "C_FP": 50,
+  "C_FN": 500,
+  "seed": 42,
+  "feature_columns": [
+    "N",
+    "P",
+    "K",
+    "temperature",
+    "humidity",
+    "ph",
+    "rainfall"
+  ],
+  "validation_cost": 100,
+  "test_cost": 100,
+  "test_f1": 0.9523809523809523,
+  "model_path": "models\\rf_final_b2.pkl",
+  "mode": "binary",
+  "model_bundle_path": "models/rf_final_b2_pipeline.pkl"
+}
