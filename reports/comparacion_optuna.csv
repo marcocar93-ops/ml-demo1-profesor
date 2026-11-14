@@ -1,0 +1,4 @@
+nombre,n_estimators,max_depth,F1 (CV),costo (CV)
+modelo base,100,,0.9267981258637544,920.0
+mejor F1,161,19.0,0.9336798462938619,820.0
+mejor costo,269,15.0,0.9336798462938619,820.0

@@ -19,6 +19,7 @@ Los notebooks `clase_1` a `clase_13` forman la secuencia principal hasta el cier
 | 13 | [clase_13_cierre_b2.ipynb](./clase_13_cierre_b2.ipynb) | Optimización de rendimiento y cierre del Bloque 2 |
 | 14 | — | Relevancia y sostenibilidad (AA 3.2) |
 | 15 | [clase_15_mlops_docker_fastapi.ipynb](./clase_15_mlops_docker_fastapi.ipynb) | MLOps, ONNX, FastAPI, Docker y profiling |
+| 16 | [clase_16_profiling_greenai.ipynb](./clase_16_profiling_greenai.ipynb) | Profiling, comparación scikit-learn/ONNX y estimación didáctica de Green AI |
 
 ## Material de apoyo
 
@@ -26,8 +27,12 @@ Estos notebooks son ejercicios complementarios; no forman parte de la numeració
 
 - [ConvertirDB.ipynb](./ConvertirDB.ipynb): lectura y conversión entre CSV, Parquet, JSON y SQL.
 - [Cargar parquet.ipynb](./Cargar%20parquet.ipynb): práctica breve de lectura y comparación de formatos.
-- [PipelinePrueba.ipynb](./PipelinePrueba.ipynb): reproducción educativa del protocolo y la métrica del PhysioNet/CinC Challenge 2019 con predicción temprana de sepsis.
+- [PipelinePrueba.ipynb](./PipelinePrueba.ipynb): pipeline binario educativo con Breast Cancer Wisconsin (Diagnostic), desde la validación cruzada hasta la elección de umbral y la evaluación final. El dataset está incluido en scikit-learn y no requiere descarga; las métricas se guardan en [`reports/pipeline_prueba_wisconsin/`](../reports/pipeline_prueba_wisconsin/). No usar para diagnóstico ni decisiones clínicas.
+
+La Clase 16 guarda sus mediciones y estimaciones en `reports/profiling_comparativo.csv` y `reports/green_ai.csv`, con gráficos en `reports/figures/`. Compara el RF final del Bloque 2 con una exportación ONNX e incluye el escalador ajustado en ambos artefactos. Las emisiones usan supuestos didácticos y no son una medición de energía; si ya existe `models/modelo.onnx`, el notebook conserva ese archivo y crea `models/modelo_clase16.onnx`.
 
 ## Datos y ejecución
 
-La secuencia usa `data/raw/Crop_recommendation.csv` para la comprensión inicial y el análisis exploratorio. Las clases posteriores reutilizan artefactos como `data/processed/crop.parquet` y modelos guardados en `models/`; verifica que esos archivos existan antes de ejecutar las celdas que los requieren. `PipelinePrueba.ipynb` descarga los archivos públicos del PhysioNet/CinC Challenge 2019 a `data/raw/physionet_challenge_2019/` cuando no están disponibles; esa carpeta de datos descargados está excluida de Git. Ejecuta las celdas en orden dentro de cada notebook.
+La secuencia principal usa `data/raw/Crop_recommendation.csv` y reutiliza artefactos como `data/processed/crop.parquet` y los modelos del proyecto; verifica que los archivos requeridos existan antes de ejecutar cada clase. `PipelinePrueba.ipynb` es independiente de esos datos y modelos agrícolas. Ejecuta las celdas en orden dentro de cada notebook.
+
+Las clases 1–6 trabajan la recomendación multiclase de cultivos. Desde la clase 7 se utiliza además una formulación binaria (`rice` / `no rice`) para estudiar factibilidad, métricas, costos y optimización; sus resultados no son directamente comparables con los de 22 clases. Las clases 11–12 ilustran aprendizaje por refuerzo en CartPole, un entorno de simulación distinto.

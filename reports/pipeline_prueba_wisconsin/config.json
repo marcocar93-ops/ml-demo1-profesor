@@ -1,0 +1,30 @@
+{
+  "dataset": "Breast Cancer Wisconsin (Diagnostic), bundled with scikit-learn",
+  "n_samples": 569,
+  "n_features": 30,
+  "positive_class": "malignant",
+  "negative_class": "benign",
+  "model_selected_by_train_cv": "Regresion logistica",
+  "random_state": 42,
+  "split": {
+    "train": 0.6,
+    "validation": 0.2,
+    "test": 0.2
+  },
+  "threshold_selected_on_validation": 0.1,
+  "cost_false_positive": 1,
+  "cost_false_negative": 20,
+  "test_metrics": {
+    "escenario": "umbral_validacion",
+    "umbral": 0.1,
+    "precision_malignant": 0.8541666666666666,
+    "recall_malignant": 0.9761904761904762,
+    "f1_malignant": 0.9111111111111111,
+    "roc_auc": 0.9953703703703705,
+    "average_precision": 0.9935613811920433,
+    "FP": 7,
+    "FN": 1,
+    "costo": 27
+  },
+  "use_limit": "Educational only; not for diagnosis or clinical decisions."
+}

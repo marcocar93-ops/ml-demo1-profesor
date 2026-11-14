@@ -1,0 +1,5 @@
+agente,recompensa_promedio,recompensa_max,recompensa_min,desviacion_std
+Aleatorio,29.2,46.0,19.0,7.947326594522211
+PPO,497.8,500.0,478.0,6.6000000000000005
+DQN,22.1,35.0,17.0,5.068530358989675
+Clásico,44.0,52.0,36.0,5.779273310719955
